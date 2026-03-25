@@ -1,0 +1,109 @@
+{
+  "identity": {
+    "displayName": "Maru Labutap",
+    "role": "Photographer / Videographer",
+    "eyebrow": "Cinematic stories in stills and motion",
+    "heroTitle": "Classic visuals crafted for people, brands, and memorable events.",
+    "heroDescription": "I create warm portrait photography, polished event coverage, and story-driven videos that feel timeless, personal, and easy to revisit.",
+    "specialties": [
+      "Portrait Sessions",
+      "Events",
+      "Brand Films",
+      "Short Reels"
+    ],
+    "focus": "Portraits, visual storytelling, and modern event films"
+  },
+  "about": {
+    "heading": "A portfolio built around calm direction and clean storytelling.",
+    "body": "Every project starts with people first. Whether it is a portrait session, a client event, or a short-form campaign, the goal is always to create images and videos that feel clear, natural, and lasting.",
+    "quote": "Good visuals should feel effortless, even when every detail is intentional.",
+    "services": [
+      "Portrait photography",
+      "Event photo and video coverage",
+      "Social media reels",
+      "Brand storytelling content"
+    ],
+    "availability": "Available for portraits, campaigns, event coverage, and creative collaborations."
+  },
+  "contact": {
+    "email": "marulabutap@gmail.com",
+    "phone": "+63 9476260148",
+    "location": "Manila, Philippines",
+    "instagram": "https://instagram.com/",
+    "videoLink": "https://youtube.com/"
+  },
+  "media": [
+    {
+      "id": "media-1774006049206-pwpqljg",
+      "title": "Okada Hotel",
+      "category": "Lanscape",
+      "description": "",
+      "featured": true,
+      "type": "image",
+      "fileName": "1774006049182-dsc03704.jpg",
+      "url": "uploads/1774006049182-dsc03704.jpg",
+      "createdAt": "2026-03-20T11:27:29.206Z",
+      "updatedAt": "2026-03-20T11:27:29.206Z"
+    },
+    {
+      "id": "media-1774005956600-66vx51e",
+      "title": "Shrine of Jesus",
+      "category": "Lanscape",
+      "description": "Archdiocesan Shrine of Jesus the Way, the Truth, and the Life.\r\nCatholic church in Pasay",
+      "featured": true,
+      "type": "image",
+      "fileName": "1774005956513-dsc03695.jpg",
+      "url": "uploads/1774005956513-dsc03695.jpg",
+      "createdAt": "2026-03-20T11:25:56.600Z",
+      "updatedAt": "2026-03-20T11:25:56.600Z"
+    },
+    {
+      "id": "media-1774005860067-j7dtgzc",
+      "title": "Random Shot",
+      "category": "Photography",
+      "description": "",
+      "featured": true,
+      "type": "image",
+      "fileName": "1774005859639-dsc03689.jpg",
+      "url": "uploads/1774005859639-dsc03689.jpg",
+      "createdAt": "2026-03-20T11:24:20.067Z",
+      "updatedAt": "2026-03-20T11:24:20.067Z"
+    },
+    {
+      "id": "media-1774005709434-3dci0h0",
+      "title": "Pickle Ball Shot",
+      "category": "Photography",
+      "description": "",
+      "featured": true,
+      "type": "image",
+      "fileName": "1774005709351-dsc03444.jpg",
+      "url": "uploads/1774005709351-dsc03444.jpg",
+      "createdAt": "2026-03-20T11:21:49.434Z",
+      "updatedAt": "2026-03-20T11:21:49.434Z"
+    },
+    {
+      "id": "media-1774005561498-uath165",
+      "title": "Pickle Ball Shot",
+      "category": "Photography",
+      "description": "",
+      "featured": true,
+      "type": "image",
+      "fileName": "1774005561387-dsc03438.jpg",
+      "url": "uploads/1774005561387-dsc03438.jpg",
+      "createdAt": "2026-03-20T11:19:21.498Z",
+      "updatedAt": "2026-03-20T11:19:35.292Z"
+    }
+  ],
+  "updatedAt": "2026-03-20T11:55:09.654Z",
+  "exportMeta": {
+    "exportedAt": "2026-03-25T12:23:38.381Z",
+    "skipped": [
+      {
+        "title": "Bhavisha & Darrien - Wedding Highlights",
+        "fileName": "1774007708515-bhavisha-darrien.mp4",
+        "size": 302254480,
+        "reason": "File is too large for a standard GitHub repository push."
+      }
+    ]
+  }
+}

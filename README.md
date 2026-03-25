@@ -1,16 +1,63 @@
-# React + Vite
+# Photography Portfolio For GitHub Pages
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This Vite app is prepared as a public-only portfolio build for GitHub Pages.
 
-Currently, two official plugins are available:
+## What Changed
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- The public site can run from a static snapshot in `src/data/site-snapshot.json`
+- Media for the public site is copied into `public/uploads`
+- The Vite app no longer ships the browser-side admin secret
+- GitHub Pages deployment is set up in `.github/workflows/deploy-pages.yml`
 
-## React Compiler
+## Refresh The Static Snapshot
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Before building or pushing, export the latest local portfolio content from the original Node app:
 
-## Expanding the ESLint configuration
+```powershell
+npm.cmd run export:static
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+That command reads from:
+
+- `..\photography-portfolio\data\content.json`
+- `..\photography-portfolio\public\uploads`
+
+And writes to:
+
+- `src\data\site-snapshot.json`
+- `public\uploads`
+
+## Large Video Note
+
+GitHub rejects normal Git pushes for files larger than 100 MiB. The export script skips oversized files automatically so deployment does not fail.
+
+For large videos, use one of these options:
+
+- Upload the video to YouTube or Vimeo and link it from the site
+- Compress the video below GitHub's normal file size limit
+- Keep large media on a proper media host instead of GitHub Pages
+
+## Local Commands
+
+```powershell
+npm.cmd install
+npm.cmd run export:static
+npm.cmd run dev
+```
+
+Optional local live-data mode:
+
+- Copy `.env.example` to `.env`
+- Keep the original local backend running on `http://localhost:3000`
+
+Production builds for GitHub Pages always use the static snapshot, even if your local `.env` exists.
+
+## Publish To GitHub Pages
+
+1. Create a GitHub repository.
+2. Push this branch.
+3. In GitHub, open `Settings` > `Pages`.
+4. Set the source to `GitHub Actions`.
+5. Push changes to `codex/react-vite` or `main`.
+
+The workflow will build and deploy the `dist` folder automatically.
