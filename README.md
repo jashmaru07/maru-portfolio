@@ -1,17 +1,48 @@
-# Photography Portfolio For GitHub Pages
+# Photography Portfolio For GitHub Pages And Local Editing
 
-This Vite app is prepared as a public-only portfolio build for GitHub Pages.
+This Vite project now supports two modes:
 
-## What Changed
+- `public static mode` for GitHub Pages
+- `standalone local mode` with its own API, uploads, and hidden admin
 
-- The public site can run from a static snapshot in `src/data/site-snapshot.json`
-- Media for the public site is copied into `public/uploads`
-- The Vite app no longer ships the browser-side admin secret
-- GitHub Pages deployment is set up in `.github/workflows/deploy-pages.yml`
+## Local Standalone Mode
 
-## Refresh The Static Snapshot
+The local backend lives inside this same project in `server.cjs`.
 
-Before building or pushing, export the latest local portfolio content from the original Node app:
+Local storage lives in:
+
+- `storage/content.json`
+- `storage/admin-access.json`
+- `storage/uploads`
+
+The `storage` folder is ignored by Git so your private admin key and large local media do not get pushed.
+
+### Start Everything Locally
+
+```powershell
+npm.cmd install
+npm.cmd run dev:local
+```
+
+That starts:
+
+- Vite frontend on `http://localhost:5173`
+- local API on `http://localhost:3000`
+
+Hidden local admin:
+
+- `http://localhost:5173/maru-studio-7c4b92e1f6`
+
+If you prefer separate terminals:
+
+```powershell
+npm.cmd run dev:api
+npm.cmd run dev
+```
+
+## Refresh The Public GitHub Snapshot
+
+Before building or pushing public portfolio changes, export the latest local data:
 
 ```powershell
 npm.cmd run export:static
@@ -19,13 +50,13 @@ npm.cmd run export:static
 
 That command reads from:
 
-- `..\photography-portfolio\data\content.json`
-- `..\photography-portfolio\public\uploads`
+- `storage/content.json`
+- `storage/uploads`
 
 And writes to:
 
-- `src\data\site-snapshot.json`
-- `public\uploads`
+- `src/data/site-snapshot.json`
+- `public/uploads`
 
 ## Large Video Note
 
@@ -37,27 +68,25 @@ For large videos, use one of these options:
 - Compress the video below GitHub's normal file size limit
 - Keep large media on a proper media host instead of GitHub Pages
 
-## Local Commands
-
-```powershell
-npm.cmd install
-npm.cmd run export:static
-npm.cmd run dev
-```
-
-Optional local live-data mode:
-
-- Copy `.env.example` to `.env`
-- Keep the original local backend running on `http://localhost:3000`
-
-Production builds for GitHub Pages always use the static snapshot, even if your local `.env` exists.
-
 ## Publish To GitHub Pages
 
-1. Create a GitHub repository.
-2. Push this branch.
-3. In GitHub, open `Settings` > `Pages`.
-4. Set the source to `GitHub Actions`.
-5. Push changes to `codex/react-vite` or `main`.
+1. Edit locally through the hidden Vite admin.
+2. Run `npm.cmd run export:static`.
+3. Commit and push the branch.
+4. GitHub Actions builds and deploys the public site.
 
-The workflow will build and deploy the `dist` folder automatically.
+Public site:
+
+- `https://jashmaru07.github.io/maru-portfolio/`
+
+## Environment
+
+Copy `.env.example` to `.env` for local use.
+
+The local `.env` controls:
+
+- `VITE_API_BASE`
+- `VITE_ADMIN_SECRET`
+- `VITE_ADMIN_PATH`
+
+Production builds for GitHub Pages do not expose the local admin route or secret.

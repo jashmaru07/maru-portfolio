@@ -2,9 +2,9 @@ import { mkdir, copyFile, readFile, rm, stat, writeFile } from "node:fs/promises
 import path from "node:path";
 
 const viteRoot = process.cwd();
-const sourceRoot = path.resolve(viteRoot, "..", "photography-portfolio");
-const sourceContentPath = path.join(sourceRoot, "data", "content.json");
-const sourceUploadsPath = path.join(sourceRoot, "public", "uploads");
+const sourceRoot = path.join(viteRoot, "storage");
+const sourceContentPath = path.join(sourceRoot, "content.json");
+const sourceUploadsPath = path.join(sourceRoot, "uploads");
 const targetUploadsPath = path.join(viteRoot, "public", "uploads");
 const snapshotDir = path.join(viteRoot, "src", "data");
 const snapshotPath = path.join(snapshotDir, "site-snapshot.json");
@@ -21,6 +21,14 @@ const skipped = [];
 const staticMedia = [];
 
 for (const item of content.media || []) {
+  if (item.source === "external") {
+    staticMedia.push({
+      ...item,
+      filePath: undefined
+    });
+    continue;
+  }
+
   const sourceFile = path.join(sourceUploadsPath, item.fileName);
 
   try {

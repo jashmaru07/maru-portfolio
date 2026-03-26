@@ -535,6 +535,10 @@ video {
   backdrop-filter: blur(12px);
 }
 
+.portfolio-card.is-vimeo .editorial-figure::before {
+  content: "Vimeo";
+}
+
 .editorial-figure img,
 .editorial-figure video {
   width: 100%;
@@ -735,6 +739,19 @@ video {
   border-radius: 24px;
 }
 
+.video-embed-shell {
+  overflow: hidden;
+  border-radius: 24px;
+  background: rgba(255, 247, 238, 0.04);
+}
+
+.vimeo-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  display: block;
+}
+
 .modal-caption {
   display: grid;
   gap: 6px;
@@ -751,6 +768,7 @@ video {
 }
 
 .ghost-button,
+.ghost-link,
 .action-button {
   min-height: 42px;
   padding: 0 16px;
@@ -763,6 +781,15 @@ video {
 .ghost-button {
   margin-left: auto;
   margin-bottom: 12px;
+  border-color: rgba(255, 247, 238, 0.12);
+  color: #ffffff;
+  background: rgba(255, 247, 238, 0.08);
+}
+
+.ghost-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-color: rgba(255, 247, 238, 0.12);
   color: #ffffff;
   background: rgba(255, 247, 238, 0.08);
@@ -900,6 +927,18 @@ video {
 .card-copy span,
 .card-copy label span {
   color: var(--text-soft);
+}
+
+.admin-note {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.admin-inline-link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
 }
 
 .section-head {
