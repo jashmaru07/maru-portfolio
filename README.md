@@ -70,6 +70,23 @@ For large videos, use one of these options:
 
 ## Publish To GitHub Pages
 
+Fastest way from PowerShell:
+
+```powershell
+npm.cmd run publish:github -- "Update portfolio"
+```
+
+That one command will:
+
+- export the latest local admin data
+- build the Vite site
+- commit the changes
+- push the branch to GitHub
+
+You can also double-click:
+
+- `publish-github.cmd`
+
 1. Edit locally through the hidden Vite admin.
 2. Run `npm.cmd run export:static`.
 3. Commit and push the branch.

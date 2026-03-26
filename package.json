@@ -9,6 +9,7 @@
     "dev:local": "concurrently -n api,web -c cyan,magenta \"npm:dev:api\" \"npm:dev\"",
     "start:api": "node server.cjs",
     "export:static": "node scripts/export-static-site.mjs",
+    "publish:github": "node scripts/publish-github.mjs",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

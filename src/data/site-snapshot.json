@@ -30,7 +30,7 @@
     "phone": "+63 9476260148",
     "location": "Manila, Philippines",
     "instagram": "https://instagram.com/",
-    "videoLink": "https://youtube.com/"
+    "videoLink": "https://vimeo.com/user256467867"
   },
   "media": [
     {
@@ -56,7 +56,7 @@
       "title": "Hailey and Vincent - Highlights - v1",
       "category": "Wedding Highlights",
       "description": "",
-      "featured": false,
+      "featured": true,
       "type": "video",
       "source": "external",
       "provider": "vimeo",
@@ -67,7 +67,7 @@
       "fileName": "",
       "url": "https://i.vimeocdn.com/video/2138444618-90cfe1c011cf6814e89b372caf486ed7cb02ed009e705d05dd2fbdff7ed82b4a-d_1280?region=us",
       "createdAt": "2026-03-26T04:27:46.404Z",
-      "updatedAt": "2026-03-26T04:41:01.133Z"
+      "updatedAt": "2026-03-26T05:36:38.128Z"
     },
     {
       "id": "media-1774499266047-p8ul0l6",
@@ -250,9 +250,9 @@
       "updatedAt": "2026-03-20T11:19:35.292Z"
     }
   ],
-  "updatedAt": "2026-03-26T04:41:01.133Z",
+  "updatedAt": "2026-03-26T09:14:54.734Z",
   "exportMeta": {
-    "exportedAt": "2026-03-26T04:42:01.091Z",
+    "exportedAt": "2026-03-26T09:17:59.466Z",
     "skipped": [
       {
         "title": "Bhavisha & Darrien - Wedding Highlights",
