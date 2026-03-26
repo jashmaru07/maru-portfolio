@@ -212,6 +212,16 @@ function parseBoolean(value) {
   return value === true || value === "true" || value === "on" || value === "1";
 }
 
+function upgradeVimeoThumbnailUrl(value) {
+  const next = String(value || "").trim();
+
+  if (!next.includes("i.vimeocdn.com/video/")) {
+    return next;
+  }
+
+  return next.replace(/-d_\d+x\d+(?=[?#]|$)/i, "-d_1280").replace(/-d_\d+(?=[?#]|$)/i, "-d_1280");
+}
+
 function parseVimeoUrl(value) {
   let parsed;
 
@@ -241,7 +251,7 @@ function parseVimeoUrl(value) {
 
 async function fetchVimeoMetadata(url) {
   const parsed = parseVimeoUrl(url);
-  const endpoint = `https://vimeo.com/api/oembed.json?url=${encodeURIComponent(parsed.canonicalUrl)}`;
+  const endpoint = `https://vimeo.com/api/oembed.json?url=${encodeURIComponent(parsed.canonicalUrl)}&width=1280`;
   const response = await fetch(endpoint, {
     headers: {
       Accept: "application/json"
@@ -259,7 +269,7 @@ async function fetchVimeoMetadata(url) {
     videoId: parsed.videoId,
     externalUrl: parsed.canonicalUrl,
     embedUrl: parsed.embedUrl,
-    thumbnailUrl: String(payload.thumbnail_url || "").trim(),
+    thumbnailUrl: upgradeVimeoThumbnailUrl(payload.thumbnail_url),
     title: String(payload.title || "Untitled Vimeo video").trim()
   };
 }

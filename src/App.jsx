@@ -31,6 +31,16 @@ function getVimeoVideoId(value) {
   return match ? match[1] : "";
 }
 
+function upgradeVimeoThumbnailUrl(value) {
+  const next = String(value || "").trim();
+
+  if (!next.includes("i.vimeocdn.com/video/")) {
+    return next;
+  }
+
+  return next.replace(/-d_\d+x\d+(?=[?#]|$)/i, "-d_1280").replace(/-d_\d+(?=[?#]|$)/i, "-d_1280");
+}
+
 function isExternalVideo(item) {
   return item?.type === "video" && item?.source === "external";
 }
@@ -53,8 +63,8 @@ function normalizeMediaItem(item) {
       (provider === "vimeo" && detectedVideoId
         ? `https://player.vimeo.com/video/${detectedVideoId}?autoplay=1&title=0&byline=0&portrait=0`
         : ""),
-    thumbnailUrl: toMediaUrl(next.thumbnailUrl),
-    url: toMediaUrl(next.url)
+    thumbnailUrl: toMediaUrl(provider === "vimeo" ? upgradeVimeoThumbnailUrl(next.thumbnailUrl) : next.thumbnailUrl),
+    url: toMediaUrl(provider === "vimeo" ? upgradeVimeoThumbnailUrl(next.url || next.thumbnailUrl) : next.url)
   };
 }
 
